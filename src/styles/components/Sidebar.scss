@@ -1,0 +1,28 @@
+@import "../variables";
+@import "../mixins.scss";
+
+.sidebar {
+  padding: 50px 0px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: $primaryBGColor;
+  nav {
+    .nav-link {
+      margin-top: 5px;
+      min-width: 150px;
+      @include flexHorizontal;
+      gap: 10px;
+      padding: 10px;
+      cursor: pointer;
+      color: $whiteColor;
+      text-decoration: none;
+
+      svg {
+        margin-left: 30px;
+        padding: 4px;
+        border-radius: 4px;
+      }
+    }
+  }
+}

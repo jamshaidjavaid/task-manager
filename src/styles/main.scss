@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;700&display=swap");
+
+@import "./variables";
+@import "./mixins.scss";
+
+:root {
+  font-family: Work Sans, sans-serif;
+}
+
+body {
+  margin: 0px;
+  background-color: $primaryBGColor;
+  color: $whiteColor;
+}
+
+.app {
+  height: 100vh;
+}
+
+// #root {
+//   height: 100vh;
+// }
+
+button {
+  margin: 0;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #0d0d11;
+  background-color: $primaryColor;
+  font-size: 16px;
+  &:hover {
+    color: $primaryColor;
+    background-color: $primaryBGColor;
+    box-shadow: 0px 0px 7px $secondaryColor;
+  }
+}
+
+.active {
+  border-left: 5px solid $primaryColorLow;
+  background-color: #0d0d11;
+}
+
+.footer {
+  @include flexHorizontal;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
+  background-color: #0d0d11;
+  color: $whiteColor;
+  hr {
+    width: 100%;
+  }
+}

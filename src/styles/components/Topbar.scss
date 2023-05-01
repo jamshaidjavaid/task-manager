@@ -1,0 +1,44 @@
+@import "../variables";
+@import "../mixins.scss";
+
+.topbar {
+  background-color: $primaryBGColor;
+  height: 60px;
+  padding: 0px 40px;
+  justify-content: space-between;
+  box-shadow: 0px 1px 5px $primaryColorLow;
+  @include flexHorizontal;
+  // position: sticky;
+  // top: 0;
+
+  .topbar-left {
+    @include flexHorizontal;
+    h2 {
+      font-weight: 400;
+      color: $secondaryColor;
+    }
+    .span-text {
+      margin-left: 10px;
+      font-weight: 400;
+      color: $whiteColor;
+    }
+  }
+  .topbar-right {
+    .profile {
+      @include flexHorizontal;
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      cursor: pointer;
+      border-radius: 50%;
+      &:hover {
+        box-shadow: 1px 0px 10px $secondaryColor;
+        color: $primaryColor;
+      }
+    }
+  }
+  z-index: 20;
+}

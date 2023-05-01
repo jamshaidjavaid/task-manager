@@ -1,0 +1,153 @@
+@import "./variables";
+@import "./mixins.scss";
+
+.page-todo {
+  width: 80%;
+  .page-top {
+    color: $secondaryColor;
+    @include flexHorizontal;
+    gap: 50px;
+    justify-content: flex-end;
+    .search {
+      @include flexHorizontal;
+      gap: 5px;
+      input {
+        padding: 3px 10px;
+        height: 30px;
+        width: 200px;
+        border-radius: 5px;
+        color: $whiteColor;
+        border: 1px solid $primaryColor;
+        background-color: $primaryBGColor;
+        outline-color: $secondaryColor;
+        &:focus {
+          border-color: $secondaryColor;
+        }
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.685);
+        }
+      }
+      .search-icon {
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 5px;
+        &:hover {
+          box-shadow: 0px 0px 5px $secondaryColor;
+          color: $primaryColor;
+        }
+      }
+    }
+  }
+  .todos {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .todo {
+      padding: 0px 30px;
+      background-color: $primaryBGColor;
+      border-radius: 10px;
+      .todo-head {
+        @include flexHorizontal;
+        justify-content: space-between;
+        .todo-heading {
+          @include flexHorizontal;
+          gap: 30px;
+          .checkbox-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            input[type="checkbox"] {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              width: 20px;
+              height: 20px;
+              border: 1px solid $primaryColor;
+              border-radius: 4px;
+              outline: none;
+              cursor: pointer;
+              position: relative;
+
+              &:checked::before {
+                content: "✔";
+                // width: 10px;
+                // height: 10px;
+                font-size: 8px;
+                font-weight: 700;
+                color: $primaryBGColor;
+                padding: 1px 3px;
+                background-color: $secondaryColor;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 2px;
+              }
+            }
+          }
+          h3 {
+            font-weight: 500;
+            color: $secondaryColor;
+          }
+        }
+        .todo-actions {
+          display: flex;
+          gap: 10px;
+          .todo-action {
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+              box-shadow: 0px 0px 5px $secondaryColor;
+            }
+          }
+          .todo-arrow {
+            margin-left: 30px;
+          }
+        }
+      }
+      .todo-description {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.task-modal {
+  label {
+    color: $whiteColor !important;
+  }
+  svg {
+    fill: $whiteColor !important;
+  }
+  input,
+  textarea {
+    border-color: $primaryColor;
+    border: 2px solid;
+  }
+  .ant-modal-header {
+    background: none !important;
+  }
+  .ant-modal-title {
+    color: $whiteColor !important;
+  }
+  .ant-modal-content {
+    background-color: $primaryBGColor;
+  }
+  .ant-btn-primary {
+    color: #0d0d11 !important;
+    background-color: $primaryColor !important;
+    &:hover {
+      color: $primaryColor !important;
+      background-color: $primaryBGColor !important;
+      box-shadow: 0px 0px 7px $secondaryColor !important;
+    }
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: $primaryColor;
+}
