@@ -1,0 +1,25 @@
+@import "./variables";
+
+.work-container {
+  display: flex;
+  gap: 50px;
+}
+
+.board-container {
+  padding: 15px 20px 30px 20px;
+  width: 200px !important;
+  height: 100%;
+  background-color: rgba(87, 219, 179, 0.034);
+  border: 1px solid $primaryColor;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

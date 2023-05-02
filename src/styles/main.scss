@@ -53,3 +53,12 @@ button {
     width: 100%;
   }
 }
+
+.icon-button {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 0px 5px $secondaryColor;
+  }
+}
