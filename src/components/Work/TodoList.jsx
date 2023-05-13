@@ -3,21 +3,22 @@ import { Icon } from "@iconify/react";
 
 import "../../styles/components/Work/TodoList.scss";
 
-const TodoList = ({ tasks }) => {
+const TodoList = ({ tasks, onDelete, onEdit, taskClassName }) => {
+  const deleteHandler = (id) => {
+    onDelete(id);
+  };
+
+  const editHandler = (task) => {
+    onEdit(task);
+  };
+
   return (
     <div className="todo-list">
-      <div className="task-add-button">
-        <Icon
-          icon="material-symbols:add-circle-outline-rounded"
-          color="#0d0d11"
-          width="15"
-          height="15"
-        />
-      </div>
       <div className="tasks">
+        {!tasks.length && <p>No tasks</p>}
         {tasks?.map((task, index) => {
           return (
-            <div key={task.id} className="task-container">
+            <div key={task.id} className={`task-container ${taskClassName}`}>
               <div className="task-head">
                 <h5>{task.heading}</h5>
                 <div className="task-icons">
@@ -27,6 +28,9 @@ const TodoList = ({ tasks }) => {
                     color="#0d0d11"
                     width="15"
                     height="15"
+                    onClick={() => {
+                      editHandler(task);
+                    }}
                   />
                   <Icon
                     className="icon-button"
@@ -34,6 +38,9 @@ const TodoList = ({ tasks }) => {
                     color="#0d0d11"
                     width="15"
                     height="15"
+                    onClick={() => {
+                      deleteHandler(task.id);
+                    }}
                   />
                 </div>
               </div>

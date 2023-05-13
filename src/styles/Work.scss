@@ -1,12 +1,66 @@
 @import "./variables";
+@import "./mixins.scss";
 
+.page-top {
+  color: $secondaryColor;
+  @include flexHorizontal;
+  gap: 50px;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-bottom: 30px;
+  .search {
+    @include flexHorizontal;
+    gap: 5px;
+    input {
+      padding: 3px 10px;
+      height: 30px;
+      width: 200px;
+      border-radius: 5px;
+      color: $whiteColor;
+      border: 1px solid $primaryColor;
+      background-color: $primaryBGColor;
+      outline-color: $secondaryColor;
+      &:focus {
+        border-color: $secondaryColor;
+      }
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.685);
+      }
+    }
+    .search-icon {
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      &:hover {
+        box-shadow: 0px 0px 5px $secondaryColor;
+        color: $primaryColor;
+      }
+    }
+  }
+}
+
+.task-add-button {
+  margin-bottom: 10px;
+  background-color: rgba(157, 197, 238, 0.514);
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0px;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+    background-color: #e7e4d8ea;
+  }
+}
 .work-container {
   display: flex;
+  justify-content: center;
   gap: 50px;
 }
 
 .board-container {
-  padding: 15px 20px 30px 20px;
+  padding: 15px 20px 10px 20px;
   width: 200px !important;
   height: 100%;
   background-color: rgba(87, 219, 179, 0.034);
@@ -22,4 +76,19 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+}
+
+.in-review-container {
+  background-color: rgba(98, 170, 224, 0.034);
+  border-color: rgb(98, 170, 224);
+}
+
+.in-progress-container {
+  background-color: rgba(255, 149, 197, 0.034);
+  border-color: rgb(255, 149, 197);
+}
+
+.completed-container {
+  background-color: rgba(185, 131, 255, 0.034);
+  border-color: rgb(185, 131, 255);
 }

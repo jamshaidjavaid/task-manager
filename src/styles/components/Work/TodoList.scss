@@ -2,26 +2,13 @@
 
 .todo-list {
   width: 100%;
-  .task-add-button {
-    background-color: rgba(157, 197, 238, 0.514);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 0px;
-    border-radius: 3px;
-    cursor: pointer;
-    &:hover {
-      background-color: #e7e4d8ea;
-    }
-  }
   .tasks {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    max-height: 53vh;
+    max-height: calc(100vh - 270px);
+    min-height: calc(100vh - 270px);
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -50,6 +37,34 @@
         font-size: 12px;
         margin: 0;
         margin-top: 10px;
+      }
+    }
+    .todo-task {
+      background-color: #74ffd1;
+      color: $primaryBGColor;
+      svg {
+        color: $primaryBGColor !important;
+      }
+    }
+    .in-progress-task {
+      background-color: rgb(255, 198, 224);
+      color: $primaryBGColor;
+      svg {
+        color: $primaryBGColor !important;
+      }
+    }
+    .in-review-task {
+      background-color: rgb(162, 215, 255);
+      color: $primaryBGColor;
+      svg {
+        color: $primaryBGColor !important;
+      }
+    }
+    .completed-task {
+      background-color: rgb(206, 168, 255);
+      color: $primaryBGColor;
+      svg {
+        color: $primaryBGColor !important;
       }
     }
   }

@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <hr />
-      Made by Jamshaid Javaid with 💖
+      Made with 💖 by Jamshaid Javaid
     </div>
   );
 };
