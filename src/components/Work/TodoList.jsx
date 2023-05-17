@@ -1,9 +1,11 @@
 import React from "react";
+import { DownOutlined } from "@ant-design/icons";
+import { Dropdown, Space } from "antd";
 import { Icon } from "@iconify/react";
 
 import "../../styles/components/Work/TodoList.scss";
 
-const TodoList = ({ tasks, onDelete, onEdit, taskClassName }) => {
+const TodoList = ({ tasks, onDelete, onEdit, taskClassName, onChangeList }) => {
   const deleteHandler = (id) => {
     onDelete(id);
   };
@@ -11,6 +13,29 @@ const TodoList = ({ tasks, onDelete, onEdit, taskClassName }) => {
   const editHandler = (task) => {
     onEdit(task);
   };
+
+  const clickHandler = (key, task) => {
+    onChangeList(key, task);
+  };
+
+  const items = [
+    {
+      key: "1",
+      label: "To Do",
+    },
+    {
+      key: "2",
+      label: "In Progress",
+    },
+    {
+      key: "3",
+      label: "In Review",
+    },
+    {
+      key: "4",
+      label: "Completed",
+    },
+  ];
 
   return (
     <div className="todo-list">
@@ -45,6 +70,31 @@ const TodoList = ({ tasks, onDelete, onEdit, taskClassName }) => {
                 </div>
               </div>
               <p>{task.description}</p>
+              <hr />
+              <div className="task-footer">
+                <p className="task-time">{task.time}</p>
+                <Dropdown
+                  trigger="click"
+                  menu={{
+                    items,
+                    selectable: true,
+                    onClick: ({ key }) => {
+                      clickHandler(key, task);
+                    },
+                  }}
+                  placement="bottom"
+                  arrow={{
+                    pointAtCenter: true,
+                  }}
+                >
+                  <a onClick={(e) => e.preventDefault()}>
+                    <Space>
+                      Add to
+                      <DownOutlined />
+                    </Space>
+                  </a>
+                </Dropdown>
+              </div>
             </div>
           );
         })}

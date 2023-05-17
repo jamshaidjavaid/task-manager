@@ -9,6 +9,7 @@ const TodoListContainer = ({
   onEdit,
   taskClassName,
   children,
+  onChangeList,
 }) => {
   return (
     <div className="task-board">
@@ -20,10 +21,11 @@ const TodoListContainer = ({
           onDelete={onDelete}
           onEdit={onEdit}
           taskClassName={taskClassName}
+          onChangeList={onChangeList}
         />
       </div>
     </div>
   );
 };
 
-export default TodoListContainer;
+export default React.memo(TodoListContainer);
